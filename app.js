@@ -35,7 +35,7 @@ conn.once("open", () => {
 
 //Create Storage Object
 const storage = new GridFsStorage({
-  url: process.env.MONGODB_URL,
+  url: "mongodb+srv://sandeep:sandeep11@cluster0.tvd5yr5.mongodb.net/ShivShaktiInternship?retryWrites=true&w=majority",
   file: (req, file) => {
     return new Promise((resolve, reject) => {
       crypto.randomBytes(16, (err, buf) => {
