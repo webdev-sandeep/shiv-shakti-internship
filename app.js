@@ -19,7 +19,9 @@ app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 
 //Setting up the connection
-var conn = mongoose.createConnection(process.env.MONGODB_URL);
+var conn = mongoose.createConnection(
+  "mongodb+srv://sandeep:sandeep11@cluster0.tvd5yr5.mongodb.net/ShivShaktiInternship?retryWrites=true&w=majority"
+);
 
 let gfs;
 conn.once("open", () => {
