@@ -19,9 +19,7 @@ app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 
 //Setting up the connection
-var conn = mongoose.createConnection(
-  "mongodb+srv://sandeep:sandeep11@cluster0.tvd5yr5.mongodb.net/ShivShaktiInternship?retryWrites=true&w=majority"
-);
+var conn = mongoose.createConnection(process.env.MONGODB_URL);
 
 let gfs;
 conn.once("open", () => {
@@ -35,7 +33,7 @@ conn.once("open", () => {
 
 //Create Storage Object
 const storage = new GridFsStorage({
-  url: "mongodb+srv://sandeep:sandeep11@cluster0.tvd5yr5.mongodb.net/ShivShaktiInternship?retryWrites=true&w=majority",
+  url: process.env.MONGODB_URL,
   file: (req, file) => {
     return new Promise((resolve, reject) => {
       crypto.randomBytes(16, (err, buf) => {
